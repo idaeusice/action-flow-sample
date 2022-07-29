@@ -9,7 +9,11 @@ describe('Page Loads', () => {
 
 
 describe('Test Entry Works',  () => {
-    it('text field', () => {
-        cy.get('#main > form > input[type=text]:nth-child(1)').type('');
+    it('Text Field', () => {
+        cy.get('#main > form > input[type=text]:nth-child(1)').type('Test Item');
+    });
+    it('Submission', () => {
+        cy.get('#main > form').submit();
+        cy.get('#main > ul > li').should('be.visible').and('contain', 'Test Item');
     });
 });
