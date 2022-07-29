@@ -12,7 +12,6 @@ PROJECT
     ⏐  ↳ Frontend (React)
     ⏐     ↳ Cypress
     ⏐  ↳ Backend (Node / Express)
-    ⏐  ↳ Dashboard
     ↳ Documentation
     ↳ Testing
 ```
