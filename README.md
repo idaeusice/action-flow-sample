@@ -18,7 +18,7 @@ PROJECT
     ↳ Testing
 ```
 
-# Running the Project Locally:
+### Running the Project Locally:
 fork or otherwise download the repository.
 ensure MySQL can run and is operating on the same ports defined in app/Backend/server.js - create a database using a command like `'CREATE DATABASE IF NOT EXISTS test;'`.
 run `npm install | npm start` from the app/Backend and app/Frontend directories to download and install dependencies and start the express.js API and react app. 
