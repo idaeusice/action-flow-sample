@@ -32,7 +32,7 @@ function App() {
   };
 
   return (
-    <>
+    <div id="main">
       <p>Enter list item to append to list: </p>
 
       <form onSubmit={e => handleSubmit(e)}>
@@ -55,7 +55,7 @@ function App() {
           <p>No items found.</p>
           )
     }
-    </>
+    </div>
   );
 }
 
