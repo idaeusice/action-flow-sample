@@ -23,3 +23,12 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('Add Item', (content) => {
+    cy.visit('');
+    cy.get('#main > form > input[type=text]:nth-child(1)')
+        .should('be.visible')
+        .type('Buy milk');
+    cy.get('#main > form')
+        .submit();
+});
