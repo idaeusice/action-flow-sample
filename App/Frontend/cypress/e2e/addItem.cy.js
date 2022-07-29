@@ -3,6 +3,7 @@
 describe('Page Loads', () => {
     it('Page Loads', () => {
         cy.visit('');
+        cy.get('#main > form > input[type=text]:nth-child(1)').should('exist');
     });
 });
 
