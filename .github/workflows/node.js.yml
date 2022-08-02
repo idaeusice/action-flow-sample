@@ -36,7 +36,7 @@ jobs:
           install-command: npm ci --legacy-peer-deps
           working-directory: App/Frontend
           start: npm start &
-          wait-on: 'http://localhost:3000'
+          wait-on: 'http://localhost:3000, http://localhost:8888'
           browser: chrome
           headed: false
         env:

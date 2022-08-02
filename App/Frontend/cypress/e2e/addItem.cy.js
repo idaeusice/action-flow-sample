@@ -7,7 +7,6 @@ describe('Page Loads', () => {
     });
 });
 
-
 describe('Test Entry Works',  () => {
     it('Text Field', () => {
         cy.get('#main > form > input[type=text]:nth-child(1)').type('Test Item');
