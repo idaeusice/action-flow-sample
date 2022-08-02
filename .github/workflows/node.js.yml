@@ -21,15 +21,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Setup Database
-        run: mysql -h 127.0.0.1 --port 8888 -u root -e 'CREATE DATABASE IF NOT EXISTS test; USE test; CREATE TABLE items;'
+        run: mysql -h 127.0.0.1 --port 8888 -u root -e 'CREATE DATABASE IF NOT EXISTS test;'
 
       - uses: actions/checkout@v2
       - uses: bahmutov/npm-install@v1
         with:
           working-directory: |
             App/Backend
-      
-      - name: Backend Start
+
+      - name: Backend Run
         run: npm start &
         working-directory: App/Backend
 
@@ -40,7 +40,7 @@ jobs:
           install-command: npm ci --legacy-peer-deps
           working-directory: App/Frontend
           start: npm start &
-          wait-on: 'http://localhost:3000'
+          wait-on: 'http://localhost:8080'
           browser: chrome
           headed: false
         env:
