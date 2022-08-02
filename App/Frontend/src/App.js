@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Form from './components/Form';
 import './App.css';
 
-function App() {
+const App = () => {
   const [ items, setItems ] = useState([]);
-  const [ itemText, setItemText ] = useState('');
   const [ loading, setLoading ] = useState(false);
   const [ response, setResponse ] = useState(null);
 
@@ -17,28 +17,12 @@ function App() {
       });
   }, [response]);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    await axios.post('http://localhost:8080/items', {
-      itemText
-    })
-    .then((res) => {
-      setResponse(res);
-    });
-  };
-
-  const handleChange = (event) => {
-    setItemText(event.target.value);
-  };
 
   return (
     <div id="main">
       <p>Enter list item to append to list: </p>
 
-      <form onSubmit={e => handleSubmit(e)}>
-        <input type='text' value={itemText} onChange={e => handleChange(e)}/>
-        <input type='submit' value='Add Item'/>
-      </form>
+      <Form id="item-form" setResponse={setResponse}/>
       {
       loading ?
         <p>Loading...</p>
@@ -47,7 +31,7 @@ function App() {
           <ul>
           {
             items.map((item) => {
-              return <li key={item.id}>{item.item}</li>
+              return <li key={item.id} class="list-item">{item.item}</li>
             })
           }
           </ul>
