@@ -28,6 +28,10 @@ jobs:
         with:
           working-directory: |
             App/Backend
+      
+      - name: Backend Start
+        run: npm start &
+        working-directory: App/Backend
 
       - name: Cypress run
         uses: cypress-io/github-action@v4
