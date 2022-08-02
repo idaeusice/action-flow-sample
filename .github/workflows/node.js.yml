@@ -15,13 +15,13 @@ jobs:
             MYSQL_ALLOW_EMPTY_PASSWORD: 1
             MYSQL_DATABASE: test
           ports:
-              - '8888:3306'
+            - '8888:3306'
           options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
       - uses: actions/checkout@v3
-      - name: Create Database
-        run: mysql -h 127.0.0.1 --port 8888 -u root -e 'CREATE DATABASE IF NOT EXISTS test;'
+      - name: Setup Database
+        run: mysql -h 127.0.0.1 --port 8888 -u root -e 'CREATE DATABASE IF NOT EXISTS test; USE test; CREATE TABLE items;'
 
       - uses: actions/checkout@v2
       - uses: bahmutov/npm-install@v1
